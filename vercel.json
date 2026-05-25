@@ -3,52 +3,47 @@
     {
       "source": "/feed",
       "destination": "https://www.alexybecker.com/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/:path*/feed",
       "destination": "https://www.alexybecker.com/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/page/:num(\\d+)",
       "destination": "https://www.alexybecker.com/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/:path*/page/:num(\\d+)",
       "destination": "https://www.alexybecker.com/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/tag/:path*",
       "destination": "https://www.alexybecker.com/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/:year(\\d{4})/:month(\\d{2})/:day(\\d{2})/:slug*",
       "destination": "https://www.alexybecker.com/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/blog/:path*",
       "destination": "https://www.alexybecker.com/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/welcome",
       "destination": "https://www.alexybecker.com/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/about",
       "destination": "https://www.alexybecker.com/",
-      "permanent": true
-    },
-    {
-      "source": "/contact",
-      "destination": "https://www.alexybecker.com/contact.html",
-      "permanent": true
+      "statusCode": 301
     }
   ]
 }

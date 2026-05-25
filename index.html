@@ -1,0 +1,791 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>Alex Becker — Performance marketing, leadership, and the AI underneath</title>
+<meta name="description" content="Alex Becker. Twenty-two years selling things online. Performance marketing before it had a name. Operator across DTC, marketplaces, and lead generation. AI-native by daily practice." />
+<meta name="theme-color" content="#09090E" />
+
+<meta property="og:title" content="Alex Becker" />
+<meta property="og:description" content="Performance marketing, leadership, and the AI underneath. Twenty-two years selling things online." />
+<meta property="og:url" content="https://alexybecker.com" />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --bg: #09090E;
+    --bg-elev: #0E0E15;
+    --bg-card: #11111A;
+    --line: #1F1F2B;
+    --line-strong: #2A2A3A;
+    --ink: #ECECF1;
+    --ink-mute: #9A9AAA;
+    --ink-dim: #5A5A6A;
+    --amber: #E4B84A;
+    --green: #4AFFA6;
+    --blue: #8B9FFF;
+    --display: "Fraunces", ui-serif, Georgia, serif;
+    --body: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+    --mono: "DM Mono", ui-monospace, "SF Mono", Menlo, monospace;
+    --maxw: 1180px;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); }
+  body {
+    font-family: var(--body);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 100;
+    opacity: 0.035;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.5 0'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>");
+  }
+  ::selection { background: var(--amber); color: var(--bg); }
+  a { color: inherit; text-decoration: none; }
+  a:focus-visible { outline: 1px solid var(--amber); outline-offset: 3px; border-radius: 2px; }
+
+  /* TOPBAR + NAV */
+  .topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(9,9,14,0.78);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .topbar-inner {
+    max-width: var(--maxw); margin: 0 auto;
+    padding: 14px 28px;
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  }
+  .topbar .wordmark {
+    font-family: var(--display); font-weight: 400; font-style: italic;
+    font-size: 16px; color: var(--ink); transition: color 0.2s ease;
+  }
+  .topbar .wordmark:hover { color: var(--amber); }
+  .topbar nav {
+    display: flex; gap: 22px;
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute);
+  }
+  .topbar nav a { position: relative; padding: 4px 0; transition: color 0.2s ease; }
+  .topbar nav a:hover { color: var(--ink); }
+  .topbar nav a.active { color: var(--amber); }
+  .topbar nav a.active::after {
+    content: ""; position: absolute; bottom: -4px; left: 0; right: 0;
+    height: 1px; background: var(--amber);
+  }
+  .topbar .meta {
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-mute);
+    display: flex; align-items: center; gap: 14px;
+  }
+  .live-dot {
+    display: inline-block; width: 7px; height: 7px; border-radius: 50%;
+    background: var(--green);
+    animation: pulse 2.2s ease-in-out infinite;
+    vertical-align: middle; margin-right: 8px;
+  }
+  @keyframes pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(74,255,166,0.45); }
+    70%  { box-shadow: 0 0 0 8px rgba(74,255,166,0); }
+    100% { box-shadow: 0 0 0 0 rgba(74,255,166,0); }
+  }
+  @media (max-width: 720px) {
+    .topbar-inner { padding: 12px 18px; gap: 10px; flex-wrap: wrap; }
+    .topbar .meta .meta-hide { display: none; }
+    .topbar nav { gap: 16px; font-size: 10px; }
+  }
+
+  /* CONTAINER + SECTIONS */
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
+  @media (max-width: 720px) { .wrap { padding: 0 18px; } }
+  section { padding: 96px 0; border-bottom: 1px solid var(--line); }
+  @media (max-width: 720px) { section { padding: 64px 0; } }
+
+  .section-label {
+    display: flex; align-items: baseline; gap: 14px;
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-dim);
+    margin-bottom: 36px;
+  }
+  .section-label .num { color: var(--amber); }
+  .section-label .rule { flex: 1; height: 1px; background: var(--line); }
+
+  /* HERO */
+  .hero { padding: 128px 0 96px; border-bottom: 1px solid var(--line); }
+  @media (max-width: 720px) { .hero { padding: 80px 0 64px; } }
+  .hero h1 {
+    font-family: var(--display); font-weight: 300;
+    font-size: clamp(56px, 11vw, 156px);
+    line-height: 0.92; letter-spacing: -0.035em;
+    margin: 0 0 36px; color: var(--ink);
+    font-variation-settings: "opsz" 144;
+  }
+  .hero h1 .ital { font-style: italic; font-weight: 300; color: var(--amber); }
+  .hero-lede {
+    font-family: var(--display); font-weight: 300;
+    font-size: clamp(22px, 2.6vw, 30px);
+    line-height: 1.35; letter-spacing: -0.015em;
+    color: var(--ink); max-width: 820px; margin: 0 0 24px;
+  }
+  .hero-lede em { font-style: italic; color: var(--amber); font-weight: 300; }
+  .hero-sub {
+    font-family: var(--mono); font-size: 12px;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-mute);
+    display: flex; flex-wrap: wrap; gap: 8px 18px;
+  }
+  .hero-sub .sep { color: var(--ink-dim); }
+
+  /* THE WORK — manifesto */
+  .manifesto {
+    font-family: var(--display); font-weight: 300;
+    font-size: clamp(26px, 3.4vw, 40px);
+    line-height: 1.25; letter-spacing: -0.02em;
+    color: var(--ink); max-width: 860px;
+  }
+  .manifesto p { margin: 0 0 28px; }
+  .manifesto p:last-child { margin: 0; }
+  .manifesto em { color: var(--amber); font-style: italic; }
+  .manifesto strong { color: var(--ink); font-weight: 500; }
+
+  /* THE ARC */
+  .arc-entry {
+    display: grid; grid-template-columns: 220px 1fr;
+    gap: 56px; padding: 44px 0;
+    border-top: 1px solid var(--line); align-items: start;
+  }
+  .arc-entry:last-of-type { border-bottom: 1px solid var(--line); }
+  @media (max-width: 720px) {
+    .arc-entry { grid-template-columns: 1fr; gap: 16px; padding: 32px 0; }
+  }
+  .arc-marker { position: sticky; top: 92px; }
+  @media (max-width: 720px) { .arc-marker { position: static; } }
+  .arc-year {
+    font-family: var(--display); font-weight: 300; font-style: italic;
+    font-size: 44px; line-height: 1; letter-spacing: -0.025em;
+    color: var(--amber); font-variation-settings: "opsz" 144;
+  }
+  .arc-where {
+    font-family: var(--mono); font-size: 10.5px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink-dim); margin-top: 12px;
+  }
+  .arc-body h3 {
+    font-family: var(--display); font-weight: 400;
+    font-size: clamp(26px, 3vw, 34px);
+    line-height: 1.15; letter-spacing: -0.02em;
+    color: var(--ink); margin: 0 0 16px;
+  }
+  .arc-body p {
+    color: var(--ink-mute);
+    font-size: 16.5px; line-height: 1.65;
+    margin: 0 0 16px; max-width: 680px;
+  }
+  .arc-body p:last-child { margin: 0; }
+  .arc-body strong { color: var(--ink); font-weight: 500; }
+  .arc-body em { color: var(--amber); font-style: italic; }
+
+  /* AI-NATIVE — April stats */
+  .ai-intro {
+    color: var(--ink-mute); font-size: 17px;
+    line-height: 1.65; max-width: 720px; margin: 0 0 48px;
+  }
+  .ai-intro em { color: var(--ink); font-family: var(--display); font-style: italic; font-weight: 400; }
+
+  .stats-card {
+    background: var(--bg-card); border: 1px solid var(--line);
+    padding: 40px 36px 32px; margin-bottom: 36px;
+  }
+  @media (max-width: 720px) { .stats-card { padding: 28px 22px 24px; } }
+  .stats-card-header {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 16px; padding-bottom: 20px; border-bottom: 1px solid var(--line); margin-bottom: 28px;
+  }
+  .stats-card-title {
+    font-family: var(--display); font-weight: 400; font-style: italic;
+    font-size: 22px; color: var(--ink); letter-spacing: -0.01em;
+  }
+  .stats-card-meta {
+    font-family: var(--mono); font-size: 10.5px;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-dim);
+    text-align: right;
+  }
+  .stats-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1px; background: var(--line); margin-bottom: 28px;
+  }
+  @media (max-width: 720px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+  .stat { background: var(--bg-card); padding: 22px 24px; }
+  .stat .v {
+    font-family: var(--display); font-weight: 300;
+    font-size: clamp(28px, 4vw, 44px);
+    line-height: 1; letter-spacing: -0.025em;
+    color: var(--ink); font-variation-settings: "opsz" 144;
+  }
+  .stat .v em { font-style: italic; color: var(--amber); font-weight: 300; }
+  .stat .l {
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-dim);
+    margin-top: 10px;
+  }
+  .model-list { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 6px; }
+  .model-pill {
+    font-family: var(--mono); font-size: 10.5px;
+    letter-spacing: 0.06em; color: var(--ink-mute);
+    padding: 5px 10px; border: 1px solid var(--line-strong);
+    border-radius: 2px; background: var(--bg);
+  }
+  .model-pill.amber { color: var(--amber); border-color: rgba(228,184,74,0.25); }
+  .model-pill.blue  { color: var(--blue);  border-color: rgba(139,159,255,0.25); }
+  .model-pill.green { color: var(--green); border-color: rgba(74,255,166,0.25); }
+
+  .ai-pull {
+    font-family: var(--display); font-weight: 300; font-style: italic;
+    font-size: clamp(22px, 2.6vw, 28px);
+    line-height: 1.35; letter-spacing: -0.015em;
+    color: var(--ink); max-width: 760px;
+    border-left: 1px solid var(--amber); padding-left: 24px; margin: 0;
+  }
+  .ai-pull em { color: var(--amber); font-style: normal; }
+
+  /* CAPABILITIES GRID */
+  .caps-intro {
+    color: var(--ink-mute); font-size: 16.5px;
+    line-height: 1.65; max-width: 760px; margin: 0 0 48px;
+  }
+  .caps-intro em {
+    font-family: var(--display); font-style: italic;
+    color: var(--ink); font-weight: 400;
+  }
+  .caps-intro strong { color: var(--ink); font-weight: 500; }
+
+  .caps-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: var(--line);
+    border: 1px solid var(--line);
+  }
+  @media (max-width: 860px) { .caps-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) { .caps-grid { grid-template-columns: 1fr; } }
+  .cap {
+    background: var(--bg);
+    padding: 28px 26px 26px;
+    transition: background 0.25s ease;
+    min-height: 220px;
+    display: flex; flex-direction: column;
+  }
+  .cap:hover { background: var(--bg-elev); }
+  .cap-head {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 16px; gap: 12px;
+  }
+  .cap-name {
+    font-family: var(--display); font-style: italic; font-weight: 400;
+    font-size: 22px; line-height: 1.1; letter-spacing: -0.01em;
+    color: var(--ink); max-width: 70%;
+  }
+  .cap-status {
+    font-family: var(--mono); font-size: 9.5px;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-dim);
+    padding: 4px 8px; border: 1px solid var(--line-strong);
+    border-radius: 2px; white-space: nowrap; flex-shrink: 0;
+  }
+  .cap-status.amber { color: var(--amber); border-color: rgba(228,184,74,0.25); }
+  .cap-status.blue  { color: var(--blue);  border-color: rgba(139,159,255,0.25); }
+
+  .cap-desc {
+    color: var(--ink-mute); font-size: 14.5px;
+    line-height: 1.6; margin: 0; flex: 1;
+  }
+  .cap-desc strong { color: var(--ink); font-weight: 500; }
+  .cap-desc em { color: var(--amber); font-style: italic; font-family: var(--display); font-weight: 400; }
+  .cap-meta {
+    font-family: var(--mono); font-size: 10.5px;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-dim);
+    margin-top: 16px; padding-top: 14px;
+    border-top: 1px dashed var(--line-strong);
+  }
+
+  /* INDEPENDENT BUILDS */
+  .ship-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  }
+  @media (max-width: 860px) { .ship-grid { grid-template-columns: 1fr; } }
+  .ship-card {
+    background: var(--bg-card); border: 1px solid var(--line);
+    padding: 32px 30px 28px; transition: border-color 0.3s ease;
+  }
+  .ship-card:hover { border-color: var(--line-strong); }
+  .ship-card.featured { grid-column: 1 / -1; padding: 40px 36px 34px; }
+  @media (max-width: 720px) { .ship-card.featured { padding: 28px 24px 26px; } }
+  .ship-head {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    gap: 16px; margin-bottom: 16px;
+  }
+  .ship-name {
+    font-family: var(--display); font-weight: 400;
+    font-size: 32px; line-height: 1; letter-spacing: -0.025em; color: var(--ink);
+  }
+  .ship-card.featured .ship-name { font-size: 52px; }
+  @media (max-width: 720px) { .ship-card.featured .ship-name { font-size: 36px; } }
+  .ship-url {
+    font-family: var(--mono); font-size: 11.5px;
+    color: var(--ink-mute); letter-spacing: 0.04em;
+    transition: color 0.2s ease;
+    align-self: flex-start; margin-top: 6px; white-space: nowrap;
+  }
+  .ship-url::before { content: "↗ "; opacity: 0.6; }
+  .ship-url:hover { color: var(--amber); }
+  .ship-tag {
+    font-family: var(--mono); font-size: 10.5px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--amber); margin-bottom: 12px;
+  }
+  .ship-card[data-accent="blue"]  .ship-tag { color: var(--blue); }
+  .ship-card[data-accent="green"] .ship-tag { color: var(--green); }
+  .ship-desc {
+    color: var(--ink-mute); font-size: 15px; line-height: 1.6;
+    margin: 0 0 16px; max-width: 660px;
+  }
+  .ship-card.featured .ship-desc { font-size: 16.5px; max-width: 740px; }
+  .ship-desc em {
+    font-family: var(--display); font-style: italic;
+    color: var(--ink); font-weight: 400;
+  }
+  .ship-meta {
+    font-family: var(--mono); font-size: 10.5px;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-dim);
+    padding-top: 16px; border-top: 1px solid var(--line);
+    display: flex; flex-wrap: wrap; gap: 6px 16px;
+  }
+  .ship-meta strong { color: var(--ink-mute); font-weight: 500; }
+
+  /* CTA */
+  .cta { padding: 96px 0 112px; border-bottom: none; }
+  @media (max-width: 720px) { .cta { padding: 64px 0 80px; } }
+  .cta-row {
+    display: grid; grid-template-columns: 1fr auto;
+    gap: 40px; align-items: end;
+  }
+  @media (max-width: 720px) { .cta-row { grid-template-columns: 1fr; gap: 24px; } }
+  .cta-lede {
+    font-family: var(--display); font-weight: 300;
+    font-size: clamp(40px, 6vw, 72px);
+    line-height: 1.02; letter-spacing: -0.03em;
+    color: var(--ink); margin: 0; max-width: 820px;
+  }
+  .cta-lede em { color: var(--amber); font-style: italic; }
+  .cta-btn {
+    display: inline-flex; align-items: center; gap: 12px;
+    padding: 18px 28px; border: 1px solid var(--amber);
+    color: var(--amber);
+    font-family: var(--mono); font-size: 12px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    transition: background 0.2s ease, color 0.2s ease; white-space: nowrap;
+  }
+  .cta-btn:hover { background: var(--amber); color: var(--bg); }
+  .cta-btn .arrow { transition: transform 0.2s ease; }
+  .cta-btn:hover .arrow { transform: translateX(4px); }
+
+  /* FOOTER */
+  footer {
+    padding: 28px 0 40px;
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-dim);
+    border-top: 1px solid var(--line);
+  }
+  .foot-inner {
+    max-width: var(--maxw); margin: 0 auto; padding: 0 28px;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+  }
+  @media (max-width: 720px) { .foot-inner { padding: 0 18px; } }
+  .cursor {
+    display: inline-block; width: 8px; height: 14px;
+    background: var(--amber); margin-left: 4px; vertical-align: -2px;
+    animation: blink 1.05s steps(2, start) infinite;
+  }
+  @keyframes blink { to { background: transparent; } }
+
+  .reveal {
+    opacity: 0; transform: translateY(8px);
+    animation: rise 0.7s ease forwards;
+  }
+  .reveal.d1 { animation-delay: 0.10s; }
+  .reveal.d2 { animation-delay: 0.20s; }
+  @keyframes rise { to { opacity: 1; transform: translateY(0); } }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; animation: none; }
+    .live-dot { animation: none; }
+    .cursor { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="wordmark" href="/">Alex Becker</a>
+    <nav>
+      <a class="active" href="/">Home</a>
+      <a href="/resume.html">Resume</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+    <div class="meta">
+      <span class="meta-hide" id="locTime">Sherman Oaks, CA · —:—</span>
+      <span><span class="live-dot"></span>Available</span>
+    </div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <h1 class="reveal">Chief Marketing<br/>Officer<span class="ital">.</span></h1>
+    <p class="hero-lede reveal d1">
+      Three-time co-founder. <em>Two decades</em> scaling DTC, marketplaces, and lead generation — through every name the industry has tried to give the work.
+    </p>
+    <div class="hero-sub reveal d2">
+      <span>Performance</span><span class="sep">/</span>
+      <span>Brand</span><span class="sep">/</span>
+      <span>Product</span><span class="sep">/</span>
+      <span>Retention</span><span class="sep">/</span>
+      <span>AI-Native</span>
+    </div>
+  </div>
+</header>
+
+<section id="work">
+  <div class="wrap">
+    <div class="section-label">
+      <span class="num">01</span><span>The work</span><span class="rule"></span>
+    </div>
+    <div class="manifesto">
+      <p>Performance marketing wasn't a discipline when I started. It was just <em>the job</em>: drive more traffic, convert more of it. The math has held up across every channel and every platform shift.</p>
+      <p>What's changed is the leverage. Every era added an order of magnitude — paid search, programmatic, attribution, mobile, retention infrastructure. <strong>AI is the next one</strong>, and the gap between operators who use it daily and those who talk about it is widening fast.</p>
+    </div>
+  </div>
+</section>
+
+<section id="arc">
+  <div class="wrap">
+    <div class="section-label">
+      <span class="num">02</span><span>The arc</span><span class="rule"></span>
+    </div>
+
+    <div class="arc-entry">
+      <div class="arc-marker">
+        <div class="arc-year">2004</div>
+        <div class="arc-where">Affiliate · College</div>
+      </div>
+      <div class="arc-body">
+        <h3>Performance marketing, before that was a term for it.</h3>
+        <p>I started running affiliate offers while I was still in college. I didn't know what it was called — there wasn't really a name for it yet. I just knew there was money to be made if you could get someone to a page and get them to act. The job was driving traffic and converting traffic at the highest rate possible.</p>
+        <p>That's <em>performance marketing and conversion rate optimization</em> — half a decade before either term entered the vocabulary. At the time it was just the internet, and I happened to be paying attention.</p>
+      </div>
+    </div>
+
+    <div class="arc-entry">
+      <div class="arc-marker">
+        <div class="arc-year">2008</div>
+        <div class="arc-where">Agency · Learn the engine</div>
+      </div>
+      <div class="arc-body">
+        <h3>The affiliates were making real money. I went to learn how.</h3>
+        <p>I watched the top affiliates pull serious revenue and realized I needed to understand the engine underneath — not just the offers, but the traffic. I joined an agency to learn how to drive traffic at scale, properly attributed and properly tracked. The classroom was the ad account.</p>
+      </div>
+    </div>
+
+    <div class="arc-entry">
+      <div class="arc-marker">
+        <div class="arc-year">2009</div>
+        <div class="arc-where">Highly Relevant · Co-founder</div>
+      </div>
+      <div class="arc-body">
+        <h3>Co-founded a performance agency before that was a category.</h3>
+        <p>I met a partner at the agency and we left to start <strong>Highly Relevant</strong> — my first time as a co-founder. The pitch, which sounded radical at the time, was that we weren't selling impressions or rankings. We were selling <em>sales, leads, and phone calls</em>. The metric was conversion, not delivery.</p>
+        <p>We built end-to-end SEO and paid search processes from scratch, recruited and developed a team of twenty-plus, and ran the work for Burger King, Hyundai, NAPA Auto Parts, and ReachLocal — plus a stable of owned-and-operated brands we ran for ourselves to keep the team sharp.</p>
+      </div>
+    </div>
+
+    <div class="arc-entry">
+      <div class="arc-marker">
+        <div class="arc-year">2014</div>
+        <div class="arc-where">Acquired by Wpromote</div>
+      </div>
+      <div class="arc-body">
+        <h3>The category arrived, and we were already inside it.</h3>
+        <p>We sold Highly Relevant to <strong>Wpromote</strong> in 2014. Wpromote was the largest privately held performance marketing agency in the country at the time, and was subsequently named the leading performance marketing agency in the <em>Forrester Wave</em>.</p>
+        <p>The exit was validation: what we'd been quietly calling "performance" had become the prevailing model. The bet had been correct, five years early.</p>
+      </div>
+    </div>
+
+    <div class="arc-entry">
+      <div class="arc-marker">
+        <div class="arc-year">2014—18</div>
+        <div class="arc-where">Operator · Marketplaces</div>
+      </div>
+      <div class="arc-body">
+        <h3>In-house, at scale.</h3>
+        <p>After Wpromote I went in-house. <strong>Oversee</strong> to run search across a portfolio of consumer travel brands — paid search alone produced more than 50% of company revenue, and an SEO rebuild drove a 30% organic lift. <strong>ScoreBig</strong> to head growth, with P&amp;L on the marketing org and every acquisition and retention channel — SEO, PPC, affiliate, email, PR, social, display, TV, radio, podcast.</p>
+        <p>Then <strong>Atom Tickets</strong> — Head of Acquisition and Retention Marketing through <em>5× customer base growth</em> in two years. Partnerships with Amazon, Starbucks, Target, T-Mobile, and Google. A web-to-app strategy that drove the retention that made the unit economics work. We scaled the business across the United States and Canada.</p>
+      </div>
+    </div>
+
+    <div class="arc-entry">
+      <div class="arc-marker">
+        <div class="arc-year">2018—19</div>
+        <div class="arc-where">Reformation · VP Ecom</div>
+      </div>
+      <div class="arc-body">
+        <h3>P&amp;L on 75% of total business revenue.</h3>
+        <p>At <strong>Reformation</strong> I owned ecommerce and product marketing. The team delivered <em>+60% YoY top-line</em> and <em>+20% bottom-line efficiency</em> in twelve months on roughly three-quarters of total company revenue.</p>
+        <p>We shipped a self-serve returns-and-exchanges portal that saved seven million dollars in revenue, stood up the A/B testing strategy and roadmap, and led the globalization push across ecommerce product, performance marketing, and operations. Reformation was running at over $250M in revenue.</p>
+      </div>
+    </div>
+
+    <div class="arc-entry">
+      <div class="arc-marker">
+        <div class="arc-year">2017—</div>
+        <div class="arc-where">Attentive · Advisory board</div>
+      </div>
+      <div class="arc-body">
+        <h3>An advisory seat at the company that defined mobile messaging.</h3>
+        <p>In 2017 I joined the advisory board of <strong>Attentive</strong>. They've since raised approximately <em>$863M</em> and reached a valuation around <em>$10B</em>. Watching that company grow from early-stage into category-defining infrastructure has shaped how I think about retention economics and the long arc of mobile-first communication.</p>
+      </div>
+    </div>
+
+    <div class="arc-entry">
+      <div class="arc-marker">
+        <div class="arc-year">2017—</div>
+        <div class="arc-where">Sam Adam Jr. Law · Co-founder, Fractional CMO</div>
+      </div>
+      <div class="arc-body">
+        <h3>Pivoted a civil and criminal practice into a PI and med-mal referral powerhouse.</h3>
+        <p>I co-founded and serve as fractional CMO of the <strong>Sam Adam Jr. Law Group</strong>. The work has been more transformation than continuation: we took a recognized Chicago civil and criminal practice and rebuilt it as a <em>personal injury and medical malpractice referral monster</em>.</p>
+        <p>The brand reputation was already there. The job was identifying where that reputation could be translated into real referral volume — and building the acquisition engine to capture it at scale.</p>
+      </div>
+    </div>
+
+    <div class="arc-entry">
+      <div class="arc-marker">
+        <div class="arc-year">2019—23</div>
+        <div class="arc-where">Amuse · Co-founder, CEO</div>
+      </div>
+      <div class="arc-body">
+        <h3>Second time as a co-founder. CEO with the product and marketing remit.</h3>
+        <p>I co-founded <strong>Amuse</strong> and ran it as CEO, leaning into product and marketing. We built a DTC platform in a category where the rulebook was being written in real time. <em>Zero to $50M ARR in eighteen months.</em> Raised $55M+ across two rounds.</p>
+        <p>Partnerships with Live Nation, Cookies, Justin Bieber, and Seth Rogen. Brand built across billboards, wildposting, direct mail, door hangers, podcast, radio, and experiential. Retention infrastructure across triggered email, SMS, and push. Acquired in 2023.</p>
+      </div>
+    </div>
+
+    <div class="arc-entry">
+      <div class="arc-marker">
+        <div class="arc-year">2023—25</div>
+        <div class="arc-where">Attorney Share · Co-founder, CMO</div>
+      </div>
+      <div class="arc-body">
+        <h3>Third time as a co-founder. Built the product <em>and</em> the marketing.</h3>
+        <p>Co-founded <strong>Attorney Share</strong> as CMO, my third co-founder role. Built the product and the marketing in parallel from blank pages — performance, brand, partnerships, CRM across email, SMS, and direct mail, plus the platform itself.</p>
+        <p><em>Zero to $30M enterprise value in twenty months.</em> Raised a $5M seed and proved product–market fit. Recruited and developed the team that runs it.</p>
+      </div>
+    </div>
+
+    <div class="arc-entry">
+      <div class="arc-marker">
+        <div class="arc-year">Now</div>
+        <div class="arc-where">Keller Postman · Atticor</div>
+      </div>
+      <div class="arc-body">
+        <h3>Four brands, fourteen states, $210M annually — and growing.</h3>
+        <p>My current work is at <strong>Keller Postman</strong> and <strong>Atticor</strong>, overseeing marketing across the portfolio of personal injury brands Atticor is acquiring. Currently <em>four brands across fourteen states</em>, with three more brands and eight more states coming online. Annual marketing budget potentially north of <em>$210M</em>.</p>
+        <p>Each brand has its own market, creative voice, and intake economics. The job is finding leverage across the portfolio without erasing what makes each brand work — and building the analytical, attribution, and tooling infrastructure that lets the portfolio operate as more than the sum of its accounts.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="ai">
+  <div class="wrap">
+    <div class="section-label">
+      <span class="num">03</span><span>AI-native, by daily practice</span><span class="rule"></span>
+    </div>
+
+    <p class="ai-intro">
+      The defining trait of the next decade of marketing leadership is going to be how comfortable an operator actually is at the keyboard with an LLM. Most aren't. I am. <em>The proof is in the meter.</em>
+    </p>
+
+    <div class="stats-card">
+      <div class="stats-card-header">
+        <div class="stats-card-title">Anthropic API · April 2026 usage</div>
+        <div class="stats-card-meta">Single operator · One workspace</div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat"><div class="v">13.57<em>M</em></div><div class="l">Tokens in</div></div>
+        <div class="stat"><div class="v">2.05<em>M</em></div><div class="l">Tokens out</div></div>
+        <div class="stat"><div class="v">0</div><div class="l">Web searches</div></div>
+        <div class="stat"><div class="v">5</div><div class="l">Models in rotation</div></div>
+      </div>
+
+      <div class="model-list">
+        <span class="model-pill amber">claude-opus-4-7</span>
+        <span class="model-pill">claude-opus-4-6</span>
+        <span class="model-pill blue">claude-sonnet-4-6</span>
+        <span class="model-pill">claude-sonnet-4</span>
+        <span class="model-pill green">claude-haiku-4-5</span>
+      </div>
+    </div>
+
+    <blockquote class="ai-pull">
+      That's one month, one console, one operator. Most of it went into building internal tools, pressure-testing channel marketing mix decisions, modeling CAC scenarios, and unlocking the team's potential. <em>None of it was demos.</em>
+    </blockquote>
+  </div>
+</section>
+
+<section id="caps">
+  <div class="wrap">
+    <div class="section-label">
+      <span class="num">04</span><span>Built for the work</span><span class="rule"></span>
+    </div>
+
+    <p class="caps-intro">
+      Years of shipping production software in service of the work — from one-off utilities to <strong>full multi-agent platforms</strong>. Browser-native instrumentation, mobile, smart LLM routing, security primitives, and the deployment stack underneath all of it. <em>Most of it solves a problem someone else was charging too much to solve.</em>
+    </p>
+
+    <div class="caps-grid">
+
+      <article class="cap">
+        <div class="cap-head">
+          <div class="cap-name">Multi-agent systems</div>
+          <div class="cap-status amber">Architecture</div>
+        </div>
+        <p class="cap-desc">Production multi-agent architectures that observe, reason, and act. Specialized agents coordinating across context to do what a single model call can't — the pattern underneath Eidros and the analytical work that drives portfolio decisions.</p>
+        <div class="cap-meta">Claude · TS · Python</div>
+      </article>
+
+      <article class="cap">
+        <div class="cap-head">
+          <div class="cap-name">Smart LLM routing</div>
+          <div class="cap-status amber">Orchestration</div>
+        </div>
+        <p class="cap-desc">Routing across model tiers based on task complexity, cost ceiling, and latency budget. Opus for heavy reasoning, Sonnet for fast iteration, Haiku for cheap repetition. The discipline behind moving <em>13.5M tokens</em> through a month without blowing a quarterly budget.</p>
+        <div class="cap-meta">Anthropic API · Cost-aware tiering</div>
+      </article>
+
+      <article class="cap">
+        <div class="cap-head">
+          <div class="cap-name">Browser extensions</div>
+          <div class="cap-status blue">Chrome MV3</div>
+        </div>
+        <p class="cap-desc">Manifest V3 extensions for behavioral capture, on-page automation, and data extraction from platform internals. Includes a companion extension for Eidros — and a separate one quietly pulling Local Services Ads spend out of Google's batchexecute RPC, <strong>replacing a five-figure vendor</strong>.</p>
+        <div class="cap-meta">MV3 · Service workers · WebCrypto</div>
+      </article>
+
+      <article class="cap">
+        <div class="cap-head">
+          <div class="cap-name">iOS &amp; Android</div>
+          <div class="cap-status blue">Mobile</div>
+        </div>
+        <p class="cap-desc">React Native and Expo. Magic-link auth, push notifications, screenshot-to-text via OCR, share-link voting flows. Backed by Next.js APIs and Supabase. Native enough for App Store distribution. Portable enough to swap pieces in an afternoon.</p>
+        <div class="cap-meta">Expo · React Native · Supabase</div>
+      </article>
+
+      <article class="cap">
+        <div class="cap-head">
+          <div class="cap-name">Attribution &amp; CAC</div>
+          <div class="cap-status amber">Analytics</div>
+        </div>
+        <p class="cap-desc">Multi-channel CAC modeling, paid-leakage scenarios, cross-domain tracking audits, attribution-window analysis. The infrastructure that makes channel-mix decisions <strong>defensible</strong> — and that catches attribution drift before it becomes a quarter-end conversation.</p>
+        <div class="cap-meta">Custom modeling · GA4 · Invoca</div>
+      </article>
+
+      <article class="cap">
+        <div class="cap-head">
+          <div class="cap-name">Media operations</div>
+          <div class="cap-status">Infrastructure</div>
+        </div>
+        <p class="cap-desc">Plan editors, invoice ledgers, reconciliation flows, heavy-up tracking, market-level rollups across TV, radio, and digital. The unglamorous infrastructure under a media budget — the part most teams hold in spreadsheets and then realize they shouldn't.</p>
+        <div class="cap-meta">Next.js · Supabase · Vercel</div>
+      </article>
+
+      <article class="cap">
+        <div class="cap-head">
+          <div class="cap-name">Competitive intelligence</div>
+          <div class="cap-status blue">Monitoring</div>
+        </div>
+        <p class="cap-desc">Share-of-voice tracking, creative monitoring, channel-presence detection — across the players actually competing in a market, not the convenient list a vendor picks. Built when off-the-shelf platforms missed the questions we needed to ask.</p>
+        <div class="cap-meta">Scrapers · Diff engines · LLM enrichment</div>
+      </article>
+
+      <article class="cap">
+        <div class="cap-head">
+          <div class="cap-name">Security &amp; access</div>
+          <div class="cap-status">Security</div>
+        </div>
+        <p class="cap-desc">AES-256-GCM encryption for static deliverables, SHA-256 hashed access via the WebCrypto API, MV3 sandbox patterns. Internal apps that ship behind credentials without leaking — plus passive security reviews across a portfolio of web properties.</p>
+        <div class="cap-meta">WebCrypto · AES-256-GCM · SHA-256</div>
+      </article>
+
+      <article class="cap">
+        <div class="cap-head">
+          <div class="cap-name">Production stack</div>
+          <div class="cap-status">Deployment</div>
+        </div>
+        <p class="cap-desc">Next.js 14, Supabase, Clerk, Stripe, Vercel — the same stack underneath self-contained password-gated tools, full SaaS products, and everything in between. Apps that ship in an afternoon and replace in another.</p>
+        <div class="cap-meta">Next.js · Supabase · Clerk · Stripe · Vercel</div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <div class="cta-row">
+      <h2 class="cta-lede">Curious what you're <em>building</em>.</h2>
+      <a href="/contact.html" class="cta-btn">Get in touch <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <span>© <span id="year">2026</span> · Alex Becker</span>
+    <span>Ready<span class="cursor"></span></span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  function fmtTime() {
+    try {
+      return new Intl.DateTimeFormat('en-US', {
+        timeZone: 'America/Los_Angeles',
+        hour: 'numeric', minute: '2-digit', hour12: false
+      }).format(new Date());
+    } catch (e) { return '—:—'; }
+  }
+  function tick() {
+    const el = document.getElementById('locTime');
+    if (el) el.textContent = 'Sherman Oaks, CA · ' + fmtTime() + ' PT';
+  }
+  tick();
+  setInterval(tick, 30 * 1000);
+</script>
+
+</body>
+</html>

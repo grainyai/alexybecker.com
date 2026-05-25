@@ -1,0 +1,54 @@
+{
+  "redirects": [
+    {
+      "source": "/feed",
+      "destination": "https://www.alexybecker.com/",
+      "permanent": true
+    },
+    {
+      "source": "/:path*/feed",
+      "destination": "https://www.alexybecker.com/",
+      "permanent": true
+    },
+    {
+      "source": "/page/:num(\\d+)",
+      "destination": "https://www.alexybecker.com/",
+      "permanent": true
+    },
+    {
+      "source": "/:path*/page/:num(\\d+)",
+      "destination": "https://www.alexybecker.com/",
+      "permanent": true
+    },
+    {
+      "source": "/tag/:path*",
+      "destination": "https://www.alexybecker.com/",
+      "permanent": true
+    },
+    {
+      "source": "/:year(\\d{4})/:month(\\d{2})/:day(\\d{2})/:slug*",
+      "destination": "https://www.alexybecker.com/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/:path*",
+      "destination": "https://www.alexybecker.com/",
+      "permanent": true
+    },
+    {
+      "source": "/welcome",
+      "destination": "https://www.alexybecker.com/",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "destination": "https://www.alexybecker.com/",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "https://www.alexybecker.com/contact.html",
+      "permanent": true
+    }
+  ]
+}
